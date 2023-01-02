@@ -1,0 +1,98 @@
+﻿@using WebApplication4.Models;
+
+@{
+    Instructor user = null;
+    if(Session["user"] == null)
+    {
+        Response.Redirect("/Home/");
+    }
+    else
+    {
+        user = (Instructor)Session["user"];
+    }
+}    
+
+@model IEnumerable<WebApplication4.Models.Question>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gamified Course Designer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/courses/">
+                <img src="../images/logo.png" width="120" style="float:left; margin-left:10px;" />
+            </a>
+        </div>
+        <h4 style="padding-top:30px; margin-left:20px; float:left">Gamified Course Designer</h4>
+
+        <div class="logout">
+            <a href="/logout/">
+                Log out
+            </a>
+        </div>
+
+    </div>
+    <div class="page">
+
+        <div style="float:left;">
+            <div class="profile">
+                <h4><u>Profile</u></h4>
+                <p><strong>Name </strong> @user.Name</p>
+                <p><strong>Phone </strong> @user.Phone</p>
+                <p><strong>Email </strong> @user.Email<br></p>
+
+                <a href="/edit_user/" style="float:right">Edit My Profle</a>
+            </div>
+
+        </div>
+        <div style="float:right; ">
+            <div class="posts">
+                <h2><u>All lesson's Questions</u></h2>
+
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <tr align="center">
+                        <td></td>
+                        <td width="400"><strong>Question</strong></td>
+                        <td width="400"><strong>Options</strong></td>
+                        <td width="400"><strong>Model Answer</strong></td>
+                        <td width="400"><strong>Grade</strong></td>
+                        <td width="400"><strong>Difficulty</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                    @{int i = 0; int id = 0;}
+                    @foreach (Question item in Model)
+                    {
+                        id = item.lesson_id;
+                        <tr >
+                            <td>@(i += 1)</td>
+                            <td width="400">@Html.DisplayFor(modelItem => item.Name)</td>
+                            <td width="400">
+                                a. @Html.DisplayFor(modelItem => item.a) <br />
+                                b. @Html.DisplayFor(modelItem => item.b) <br />
+                                c. @Html.DisplayFor(modelItem => item.c) <br />
+                                d. @Html.DisplayFor(modelItem => item.d) <br />
+
+                            </td>
+                            <td width="400">@Html.DisplayFor(modelItem => item.answer)</td>
+                            <td width="400">@Html.DisplayFor(modelItem => item.grade)</td>
+                            <td width="400">@Html.DisplayFor(modelItem => item.deficulty)</td>
+                            <td><a href="@Html.DisplayFor(modelItem => item.question_mp3)" target="_blank">Download</a></td>
+                            <td><a href="/lessons/Index?id=@Html.DisplayFor(modelItem => item.Id)"><img src="../images/b_drop.png" /></a></td>
+                        </tr>                        
+                    }
+                    
+                </table>
+
+                <div style="clear:both"></div>
+                <a href="/new_question/index?id=@id" class="circleButton"></a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿@using WebApplication4.Models;
+
+@{
+    Instructor user = null;
+    if (Session["user"] == null)
+    {
+        Response.Redirect("/Home/");
+    }
+    else
+    {
+        user = (Instructor)Session["user"];
+    }
+}
+@model WebApplication4.Models.Course
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gamified Course Designer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/courses/">
+                <img src="../images/logo.png" width="120" style="float:left; margin-left:10px;" />
+            </a>
+        </div>
+        <h4 style="padding-top:30px; margin-left:20px; float:left">Gamified Course Designer</h4>
+
+        <div class="logout">
+            <a href="/logout/">
+                Log out
+            </a>
+        </div>
+
+    </div>
+    <div class="page">
+
+        <div style="float:left;">
+            <div class="profile">
+                <h4><u>Profile</u></h4>
+                <p><strong>Name </strong> @user.Name</p>
+                <p><strong>Phone </strong> @user.Phone</p>
+                <p><strong>Email </strong> @user.Email<br></p>
+
+                <a href="/edit_user/" style="float:right">Edit My Profle</a>
+            </div>
+
+        </div>
+
+        <div style="float:right; ">
+            <div class="posts content2">
+                <div class="content2">
+
+                    @{Course course = Model;}
+                    <h3><u>Edit course <strong style="color:red">@course.Name</strong> info</u></h3>
+                    <form action="" method="post">
+                        <input type="hidden" name="id" value="@course.Id"/>
+                        <strong>Name</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" name="name" style="width:340px;" value="@course.Name" />
+                        <br /><br />
+                        <strong>Description</strong><br>
+                        <textarea name="description" style="height:150px; width:100%">@course.Description</textarea>
+                        <br /><br />
+                        <strong>Requerments</strong>
+                        <textarea name="requerment" style="height:150px; width:100%" placeholder="Seperate between Requerments using ', '">@course.Requerment</textarea>
+                        <br /><br />
+                        <strong>Keywords</strong>
+                        <textarea name="keywords" style="height:150px; width:100%" placeholder="Seperate between skills using ', '">@course.Keywords</textarea>
+                        <br /><br />
+                        <strong>Intended Learning Outcome</strong>
+                        <textarea name="Material_oj" style="height:150px; width:100%" placeholder="Seperate between skills using ', '">@course.Material_oj</textarea>
+                        <br /><br />
+                        <input type="submit" class="button" value="Update Now" />
+                    </form>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>        

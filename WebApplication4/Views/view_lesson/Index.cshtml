@@ -1,0 +1,157 @@
+﻿@*@using WebApplication4.Models;
+
+@{
+    Instructor user = null;
+    if (Session["user"] == null)
+    {
+        Response.Redirect("/Home/");
+    }
+    else
+    {
+        user = (Instructor)Session["user"];
+    }
+}
+@model WebApplication4.Models.Lesson
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gamified Course Designer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/courses/">
+                <img src="../images/logo.png" width="120" style="float:left; margin-left:10px;" />
+            </a>
+        </div>
+        <h4 style="padding-top:30px; margin-left:20px; float:left">Gamified Course Designer</h4>
+
+        <div class="logout">
+            <a href="/logout/">
+                Log out
+            </a>
+        </div>
+
+    </div>
+    <div class="page">
+
+        <div style="float:left;">
+            <div class="profile">
+                <h4><u>Profile</u></h4>
+                <p><strong>Name </strong> @user.Name</p>
+                <p><strong>Phone </strong> @user.Phone</p>
+                <p><strong>Email </strong> @user.Email<br></p>
+
+                <a href="/edit_user/" style="float:right">Edit My Profle</a>
+            </div>
+
+        </div>
+
+        <div style="float:right; ">
+            <div class="posts content2">
+
+                    @{Lesson lesson = Model;}
+                    <h3><u><strong style="color:red">@lesson.Name</strong> Lesson Details</u></h3>
+                    <p<b>Lesson Name </b> @lesson.Name</p>
+                    <p<b>Lesson Order </b> @lesson.order</p>
+                    <p<b>Lesson Description </b> @lesson.Description</p>
+                    <p<b>Lesson Material Text </b> <br/>@lesson.Material_text</p>
+                    <p<b>Lesson Material Vedio </b> <a href="@Html.DisplayFor(modelItem => lesson.Material_vedio)" target="_blank">Download</a></p>
+                    <p<b>Lesson Material Audio </b> <a href="@Html.DisplayFor(modelItem => lesson.Material_mp3)" target="_blank">Download</a></p>
+                    <p<b>Lesson Material Image </b> <a href="@Html.DisplayFor(modelItem => lesson.Material_image)" target="_blank">Download</a></p>
+                    <p<b>Lesson Material PDF </b> <a href="@Html.DisplayFor(modelItem => lesson.Material_pdf)" target="_blank">Download</a></p>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>*@        
+@using WebApplication4.Models;
+
+@{
+    Instructor user = null;
+    if (Session["user"] == null)
+    {
+        Response.Redirect("/Home/");
+    }
+    else
+    {
+        user = (Instructor)Session["user"];
+    }
+}
+@model WebApplication4.Models.Lesson
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gamified Course Designer</title>
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="/courses/">
+                <img src="../images/logo.png" width="120" style="float:left; margin-left:10px;" />
+            </a>
+        </div>
+        <h4 style="padding-top:30px; margin-left:20px; float:left">Gamified Course Designer</h4>
+
+        <div class="logout">
+            <a href="/logout/">
+                Log out
+            </a>
+        </div>
+
+    </div>
+    <div class="page">
+
+        <div style="float:left;">
+            <div class="profile">
+                <h4><u>Profile</u></h4>
+                <p><strong>Name </strong> @user.Name</p>
+                <p><strong>Phone </strong> @user.Phone</p>
+                <p><strong>Email </strong> @user.Email<br></p>
+
+                <a href="/edit_user/" style="float:left">Edit My Profle</a>
+            </div>
+
+        </div>
+
+        <div style="float:right; ">
+            <div class="posts content2">
+
+                @{Lesson lesson = Model;}
+                <h3><u>Lesson <strong style="color:red">@lesson.order - @lesson.Name</strong> Details</u></h3>
+                <p><b>@lesson.Description</b></p>
+                <br />
+
+                <p><b>Material Text </b> <br />@lesson.Material_text</p><br />
+                @*<p><b>Material OJ </b> <br />@lesson.Material_oj</p><br />*@
+                <p>
+                    <b>Material Vedio </b><br />
+                    <video width="620" height="240" controls>
+                        <source src="@Html.DisplayFor(modelItem => lesson.Material_vedio)" type="video/mp4">
+                        <source src="@Html.DisplayFor(modelItem => lesson.Material_vedio)" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </p><br />
+                <p>
+                    <b>Material Audio </b><br />
+                    <audio controls>
+                        <source src="@Html.DisplayFor(modelItem => lesson.Material_mp3)" type="video/mp3">
+                        <source src="@Html.DisplayFor(modelItem => lesson.Material_mp3)" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </audio>
+                </p><br />
+                <p><b>Material Image </b> <br /> <img src="@Html.DisplayFor(modelItem => lesson.Material_image)" width="600" /></p><br />
+                <p<b>Material Pdf </b> <a href="@Html.DisplayFor(modelItem => lesson.Material_pdf)" target="_blank">Download</a></p>
+
+                <div style="clear:both"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+

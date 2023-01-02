@@ -1,0 +1,205 @@
+body
+{
+	padding:0px;
+	margin:0px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.header
+{
+	height:90px;
+	background:#528ec6;
+	color:#fff;
+	padding:0px 100px;
+}
+.logo
+{
+	padding-top:5px;
+	height:100px;
+	float:left;
+	background:#fff;
+	border:none;
+}
+.logout a
+{
+	float:right;
+	background:#fff;
+	text-decoration:none;
+	padding:10px;
+	color:#2e6601;
+	font-weight:bold;
+	margin-top:25px;
+}
+.circleButton
+{
+	border-radius:50%;
+	float:right;
+	color:#fff;
+	text-decoration:none;
+	width:70px;
+	height:70px;
+	background: url(../images/addnew.png);
+	font-weight:bold;
+	position:fixed;
+	bottom:100px;
+	right:130px;
+}
+.content
+{
+	margin:50px auto;
+	width:fit-content;
+	padding:30px;
+	background:#f7f7f7;
+	border-radius:30px;
+	font-size:20px;
+}
+.content2
+{
+	width:fit-content;
+	padding:30px;
+	background:#f7f7f7;
+	border-radius:30px;
+	font-size:20px;
+	margin:auto !important;
+}
+.page
+{
+	margin:50px 0;
+	padding:0px 100px;
+}
+.button
+{
+	background:#f45e00;
+	padding:10px 40px;
+	border:none;
+	color:#fff;
+	font-size:20px;
+}
+input[type=email], input[type=password], input[type=text], textarea, select, input[type=date], input[type=time]
+{
+	width:300px;
+	height:30px;
+	margin-top:10px;
+	
+}
+
+h3
+{
+	text-align:center;
+	color:#333;
+}
+.box
+{
+	background:#f0f0f0;
+	float:left;
+	width:150px;
+	height:150px;
+	padding:15px 10px;
+	border-radius:10px;
+	margin:10px;
+	text-align:center;
+	text-decoration:none;
+	color:#222;
+}
+.box img
+{
+	margin-bottom:5px;
+}
+t
+{
+	color:red;
+}
+.search
+{
+	float:left;
+	width:fit-content;
+	font-size:20px;
+	
+}
+.categories, .profile
+{
+	float:left;
+	width:300px;
+	padding:25px;
+	background:#f7f7f7;
+	border-radius:30px;
+	font-size:20px;
+	margin-top:30px;
+}
+.categories a
+{
+	
+	text-decoration:none;
+	text-transform:capitalize;
+	color:#333;
+	display:block;
+	border-bottom:1px dotted #333;
+	padding:12px 0;
+	font-size:18px;
+	padding-left:20px;
+	
+}
+.categories a:hover
+{
+	background:#333;
+	color:#f7f7f7;
+	
+}
+.posts
+{
+	float:right;
+	border-radius:30px;
+	font-size:20px;
+	width:700px;
+}
+.researsh
+{
+	background:#f7f7f7;
+	width:90%;
+	padding:30px;
+	border-radius:20px;
+	font-size:16px;
+	color:#333;
+	margin-bottom:20px;
+}
+.researsh p
+{
+	padding:5px;
+	line-height:24px;
+	text-align:justify;
+}
+.researsh data
+{
+	float:right;
+	font-size:13px;
+}
+.search input[type=search]
+{
+	width:290px;
+	height:35px;
+}
+.search input[type=submit]
+{
+	width:50px;
+	height:35px;
+	font-size:18px;
+	color:#fff;
+	background:#2e6601;
+	border:none;
+	cursor:pointer;
+}
+h4
+{
+	padding:0px;
+	margin:0px;
+	margin-bottom:20px;
+	font-size:20px;
+}
+.profile
+{
+	font-size:16px;
+	margin-top:10px;
+}
+.profile p
+{
+	margin-left:20px !important;
+}
